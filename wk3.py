@@ -1,16 +1,20 @@
-def large_power(base, exponent):
-    result = base ** exponent
-    if result > 5000:
-        return True
+def calculate_discount(price, discount_percent):
+    """Calculate the final price after applying discount if it's 20% or higher"""
+    if discount_percent >= 20:
+        discount_amount = price * (discount_percent / 100)
+        final_price = price - discount_amount
+        return final_price
     else:
-        return False
-print(large_power(2, 13))
+        return price
 
+# Get user input
+original_price = float(input("Enter the original price of the item: "))
+discount_percentage = float(input("Enter the discount percentage: "))
 
-def divisible_by_ten(num):
-    if num % 10 == 0:
-        return True
-    else:
-        return False
+# Calculate and display the result
+final_price = calculate_discount(original_price, discount_percentage)
 
-print(divisible_by_ten(20))
+if discount_percentage >= 20:
+    print(f"Final price after {discount_percentage}% discount: ${final_price:.2f}")
+else:
+    print(f"No discount applied. Original price: ${original_price:.2f}")
